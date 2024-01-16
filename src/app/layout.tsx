@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Header } from "@/components/header";
+import { Header } from "@/components/Header";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Mais de 10 mil jogos separados e organizados",
   keywords: ["games", "jogos", "steam", "console"],
   openGraph: {
-    images: [`${process.env.PROJECT_URL}/preview.png`],
+    images: [`${process.env.NEXT_PUBLIC_PROJECT_URL}/preview.png`],
   },
   robots: {
     index: true,

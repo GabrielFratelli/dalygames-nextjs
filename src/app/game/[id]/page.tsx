@@ -1,7 +1,7 @@
 import { GameProps } from "@/utils/types/game";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import { Container } from "@/components/container";
+import { Container } from "@/components/Container";
 import { Label } from "./components/label";
 import { GameCard } from "@/components/GameCard";
 import { Metadata } from "next";
@@ -17,7 +17,7 @@ export async function generateMetadata({
 }: PropsParams): Promise<Metadata> {
   try {
     const response: GameProps = await fetch(
-      `${process.env.NEXT_API_URL}/next-api/?api=game&id=${params.id}`
+      `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game&id=${params.id}`
     )
       .then((res) => res.json())
       .catch(() => {
@@ -54,7 +54,7 @@ export async function generateMetadata({
 async function getData(id: string) {
   try {
     const res = await fetch(
-      `${process.env.NEXT_API_URL}/next-api/?api=game&id=${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game&id=${id}`,
       { next: { revalidate: 60 } }
     );
     return res.json();
@@ -66,7 +66,7 @@ async function getData(id: string) {
 async function getGameSorted() {
   try {
     const res = await fetch(
-      `${process.env.NEXT_API_URL}/next-api/?api=game_day`,
+      `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game_day`,
       { cache: "no-store" }
     );
     return res.json();
@@ -91,7 +91,7 @@ export default async function Game({
     <main className="w-full text-black">
       <div className="bg-black h-80 sm:h-96 w-full relative">
         <Image
-          className="object-cover w-full h-80 sm:h-96 opacity-75"
+          className="object-center w-full h-80 sm:h-96 opacity-75"
           src={data.image_url}
           alt={data.title}
           priority={true}
@@ -120,7 +120,7 @@ export default async function Game({
         </div>
 
         <p className="mt-7 mb-2">
-          <strong>Data de lançamento</strong>
+          <strong>Data de lançamento:&nbsp;</strong>
           {data.release}
         </p>
 

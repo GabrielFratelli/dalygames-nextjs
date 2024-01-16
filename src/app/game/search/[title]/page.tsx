@@ -1,13 +1,13 @@
 import { GameCard } from "@/components/GameCard";
-import { Container } from "@/components/container";
-import { Input } from "@/components/input";
+import { Container } from "@/components/Container";
+import { Input } from "@/components/Input";
 import { GameProps } from "@/utils/types/game";
 
 async function getData(title: string) {
   try {
     const decodeTitle = decodeURI(title);
     const res = await fetch(
-      `${process.env.NEXT_API_URL}/next-api/?api=game&title=${decodeTitle}`
+      `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game&title=${decodeTitle}`
     );
     return res.json();
   } catch (err) {
