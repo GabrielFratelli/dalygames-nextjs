@@ -2,9 +2,9 @@ import { Container } from "@/components/Container";
 import { GameProps } from "@/utils/types/game";
 import { Input } from "@/components/Input";
 import { BsArrowRightSquare } from "react-icons/bs";
+import { GameCard } from "@/components/GameCard";
 import Image from "next/image";
 import Link from "next/link";
-import { GameCard } from "@/components/GameCard";
 
 async function getDalyGame() {
   try {
