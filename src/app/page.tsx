@@ -8,6 +8,8 @@ import { GameCard } from "@/components/GameCard";
 
 async function getDalyGame() {
   try {
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game_day`,
       { next: { revalidate: 320 } }
@@ -20,6 +22,8 @@ async function getDalyGame() {
 
 async function getGamesData() {
   try {
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=games`,
       {

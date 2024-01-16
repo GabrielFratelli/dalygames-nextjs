@@ -27,7 +27,7 @@ Para rodar este projeto é necessário ter instalado na sua máquina as seguinte
 
 - Criar o arquivo `.env.local` na raiz do projeto com os seguintes códigos: <br>`export NEXT_PUBLIC_API_URL="https://sujeitoprogramador.com"`
   `export NEXT_PUBLIC_PROJECT_URL="http://localhost:3000"`
-- Se estiver utilizando <b>Sistema Operacional Linux Ubuntu</b> tente rodar o projeto normalmente, se houver erro de chamada <b>API</b> deve adicionar a seguinte linha de código: <b>process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";</b> por conta do <a href="https://ajuda.serasa.certificadodigital.com.br/hc/pt-br/articles/4938472757011-Diferen%C3%A7as-entre-os-tipos-de-certificado-SSL#:~:text=Os%20certificados%20SSL%20Self%20Signed,N%C3%A3o%20possuem%20confian%C3%A7a%20p%C3%BAblica.">Certificado de Autoassinado</a>.
+- Se estiver utilizando <b>Sistema Operacional Linux Ubuntu</b> deve adicionar a seguinte linha de código: <b>process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";</b> por conta do <a href="https://ajuda.serasa.certificadodigital.com.br/hc/pt-br/articles/4938472757011-Diferen%C3%A7as-entre-os-tipos-de-certificado-SSL#:~:text=Os%20certificados%20SSL%20Self%20Signed,N%C3%A3o%20possuem%20confian%C3%A7a%20p%C3%BAblica.">Certificado de Autoassinado</a>.
   <img src="public/util.png">
 
 ## Para rodar o projeto 📌

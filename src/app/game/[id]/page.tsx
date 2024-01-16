@@ -16,6 +16,8 @@ export async function generateMetadata({
   params,
 }: PropsParams): Promise<Metadata> {
   try {
+    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+
     const response: GameProps = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game&id=${params.id}`
     )
@@ -52,6 +54,8 @@ export async function generateMetadata({
 }
 
 async function getData(id: string) {
+  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game&id=${id}`,
@@ -64,6 +68,8 @@ async function getData(id: string) {
 }
 
 async function getGameSorted() {
+  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
+
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game_day`,
@@ -89,19 +95,18 @@ export default async function Game({
 
   return (
     <main className="w-full text-black">
-      <div className="bg-black h-80 sm:h-96 w-full relative">
-        <Image
-          className="object-center w-full h-80 sm:h-96 opacity-75"
-          src={data.image_url}
-          alt={data.title}
-          priority={true}
-          fill={true}
-          quality={100}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 44vw"
-        />
-      </div>
-
       <Container>
+        <div className="bg-black h-80 sm:h-96 w-full relative">
+          <Image
+            className="w-full h-80 sm:h-96 opacity-75"
+            src={data.image_url}
+            alt={data.title}
+            priority={true}
+            fill={true}
+            quality={100}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 44vw"
+          />
+        </div>
         <h1 className="font-bold text-xl my-4">{data.title}</h1>
         <p>{data.description}</p>
 
