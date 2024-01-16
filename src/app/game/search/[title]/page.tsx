@@ -5,8 +5,6 @@ import { GameProps } from "@/utils/types/game";
 
 async function getData(title: string) {
   try {
-    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-
     const decodeTitle = decodeURI(title);
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game&title=${decodeTitle}`

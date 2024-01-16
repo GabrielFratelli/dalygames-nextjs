@@ -16,8 +16,6 @@ export async function generateMetadata({
   params,
 }: PropsParams): Promise<Metadata> {
   try {
-    process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-
     const response: GameProps = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game&id=${params.id}`
     )
@@ -54,8 +52,6 @@ export async function generateMetadata({
 }
 
 async function getData(id: string) {
-  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game&id=${id}`,
@@ -68,8 +64,6 @@ async function getData(id: string) {
 }
 
 async function getGameSorted() {
-  process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
-
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/next-api/?api=game_day`,
